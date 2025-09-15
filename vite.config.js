@@ -24,5 +24,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/CRM/", // 👈 must match your repo name
+  base: "/CRM/",
 });
