@@ -1,7 +1,7 @@
-import { Card, CardHeader, CardTitle, CardContent } from "../component/ui/cards";
+import { Card, CardHeader, CardTitle, CardContent } from "@/component/ui/card";
 import ArrowIcon from "@/assets/arrow.png";
 
-export default function card() {
+export default function ExampleCard() {
   const cardData = [
     {
       title: "Pending Tasks",

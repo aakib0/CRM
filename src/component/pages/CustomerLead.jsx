@@ -236,7 +236,7 @@ const CustomerLeads = ({ onToggleSidebar }) => {
           </table>
         </div>
         <div className="mt-4 ">
-          <PaginationFooter />
+          <Pagination />
         </div>
       </div>
     </div>

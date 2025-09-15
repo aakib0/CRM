@@ -1,7 +1,7 @@
 import React from "react";
 import { PanelLeft, CirclePlus } from "lucide-react";
 
-const NavBar = ({ onToggleSidebar }) => {
+const Navbar = ({ onToggleSidebar }) => {
   return (
     <div className="flex items-center justify-between mb-2 sticky top-0 bg-gray-50 py-2 border-b border-gray-200 ">
       <div className="flex items-center gap-2">
@@ -19,4 +19,4 @@ const NavBar = ({ onToggleSidebar }) => {
   );
 };
 
-export default NavBar;
+export default Navbar;

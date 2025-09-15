@@ -229,7 +229,7 @@ const DataTable = () => {
         </table>
       </div>
 
-      <PaginationFooter
+      <Pagination
         rowsPerPage={rowsPerPage}
         setRowsPerPage={setRowsPerPage}
       />

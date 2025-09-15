@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Database, Trello, Settings } from "lucide-react";
-import CustomerLead from "./CustomerLead";
+import CustomerLeads from "./CustomerLead";
 import { Routes, Route, Link } from "react-router-dom";
 import MyData from "./MyData";
 import MyEmployees from "./MyEmployees";
-import EmployeDetail from "./EmployeDetail";
+import EmployeeDetail from "./EmployeDetail";
 
 const Layout = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -97,4 +97,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default Layout;

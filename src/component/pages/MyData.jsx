@@ -1,13 +1,13 @@
 import React from "react";
 import { Plus, ChevronDown, Columns2 } from "lucide-react";
-import Card from "../Cards/Card";
+import ExampleCard from "../Cards/Examplecard";
 import DataTable from "./DataTable";
 import NavBar from "../Cards/NavBar";
 
 const MyData = ({ onToggleSidebar }) => {
   return (
     <div className="px-6 pt-1 pd-6">
-      <TopNavBar onToggleSidebar={onToggleSidebar} />
+      <NavBar onToggleSidebar={onToggleSidebar} />
       <ExampleCard />
       <div className="p-4  rounded-lg ">
         <div className="flex items-center justify-between">
