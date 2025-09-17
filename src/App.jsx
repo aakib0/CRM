@@ -1,13 +1,23 @@
-import React from "react";
-import Layout from "./component/pages/Layout";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Layout from "@/components/pages/Layout";
+import MyData from "./components/pages/MyData";
+import MyEmployees from "./components/pages/MyEmployees";
+import EmployeeDetail from "./components/pages/EmployeeDetail";
+import CustomerLeads from "./components/pages/CustomerLeads";
 
 function App() {
   return (
-    <React.Fragment>
-     
-      <Layout />
-    </React.Fragment>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Navigate to="my-data" replace />} />
+
+        <Route path="my-data" element={<MyData />} />
+        <Route path="my-employees" element={<MyEmployees />} />
+        <Route path="employee-details" element={<EmployeeDetail />} />
+        <Route path="customer-leads" element={<CustomerLeads />} />
+      </Route>
+    </Routes>
   );
 }
 
-export default App; 
+export default App;

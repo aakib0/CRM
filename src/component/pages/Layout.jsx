@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { Database, Trello, Settings } from "lucide-react";
-import CustomerLeads from "./CustomerLead";
-import { Routes, Route, Link } from "react-router-dom";
-import MyData from "./MyData";
-import MyEmployees from "./MyEmployees";
-import EmployeeDetail from "./EmployeDetail";
+import { Link, Outlet } from "react-router-dom";
 
 const Layout = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -22,19 +18,19 @@ const Layout = () => {
       >
         <div className="flex-shrink-0 p-4 border-b border-gray-200">
           <h4 className="font-bold text-gray-900">
-            {collapsed ? "" : "TeleCRM"}
+            {collapsed ? "" : "taleCRM"}
           </h4>
         </div>
 
         <nav className="flex-1 px-2 py-6 overflow-y-auto">
           <div className="space-y-2">
-            <Link to="/my-data">
+            <Link to="my-data">
               <button className="flex items-center gap-3 w-full px-3 py-2 text-left text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md">
                 <Database className="w-4 h-4" />
                 {!collapsed && "My Data"}
               </button>
             </Link>
-            <Link to="/my-employees">
+            <Link to="my-employees">
               <button className="flex items-center gap-3 w-full px-3 py-2 text-left text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md">
                 <Trello className="w-4 h-4" />
                 {!collapsed && "My Employees"}
@@ -70,31 +66,10 @@ const Layout = () => {
           collapsed ? "ml-20" : "ml-64"
         }`}
       >
-        <Routes>
-          <Route
-            path="/"
-            element={<MyData onToggleSidebar={handleToggleSidebar} />}
-          />
-          <Route
-            path="/my-data"
-            element={<MyData onToggleSidebar={handleToggleSidebar} />}
-          />
-          <Route
-            path="/my-employees"
-            element={<MyEmployees onToggleSidebar={handleToggleSidebar} />}
-          />
-          <Route
-            path="/employee-details"
-            element={<EmployeeDetail onToggleSidebar={handleToggleSidebar} />}
-          />
-          <Route
-            path="/customer-leads"
-            element={<CustomerLeads onToggleSidebar={handleToggleSidebar} />}
-          />
-        </Routes>
+        <Outlet context={{ onToggleSidebar: handleToggleSidebar }} />
       </main>
     </div>
   );
 };
 
-export default Layout;
+export default Layout;

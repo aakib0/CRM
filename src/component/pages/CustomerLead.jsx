@@ -2,8 +2,10 @@ import React from "react";
 import { PanelLeft, CirclePlus, ChevronRight, Plus } from "lucide-react";
 import Pagination from "../Cards/Pagination";
 import { Link } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 
 const CustomerLeads = ({ onToggleSidebar }) => {
+    const { onToggleSidebar } = useOutletContext();
   const customerDetails = [
     {
       name: "Customer 1",

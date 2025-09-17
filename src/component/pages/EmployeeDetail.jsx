@@ -1,6 +1,8 @@
 import React from "react";
+import { useOutletContext } from "react-router-dom";
 
-const EmployeDetail = ({ onToggleSidebar }) => {
+const EmployeeDetail = ({ onToggleSidebar }) => {
+    const { onToggleSidebar } = useOutletContext();
   const handleToggleSidebar = () => {
     onToggleSidebar();
   };
@@ -17,4 +19,4 @@ const EmployeDetail = ({ onToggleSidebar }) => {
   );
 };
 
-export default EmployeDetail;
+export default EmployeeDetail;
