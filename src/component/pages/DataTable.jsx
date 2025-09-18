@@ -207,14 +207,15 @@ const DataTable = () => {
                     </DropdownMenuTrigger>
 
                     <DropdownMenuContent className="w-44 absolute right-3 top-0 bg-gray-50 border border-gray-100 p-2 ">
-                      <Link to="/customer-leads">
-                        <div className=" border rounded-xl border-gray-100 hover:bg-white mb-1 font-medium flex items-center">
-                          <SquarePen className="h-4 ml-2" />
-                          <DropdownMenuItem>
-                            <span className="text-[14px]">View Details</span>
-                          </DropdownMenuItem>
-                        </div>
-                      </Link>
+     <Link to="/CRM/customer-leads">
+  <div className="border rounded-xl border-gray-100 hover:bg-white mb-1 font-medium flex items-center">
+    <SquarePen className="h-4 ml-2" />
+    <DropdownMenuItem>
+      <span className="text-[14px]">View Details</span>
+    </DropdownMenuItem>
+  </div>
+</Link>
+
                       <div className="border rounded-xl border-gray-100 hover:bg-white font-medium flex items-center text-red-600">
                         <Trash2 className="ml-2 h-4" />
                         <DropdownMenuItem>

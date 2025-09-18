@@ -1,11 +1,11 @@
 import React from "react";
-import { PanelLeft, CirclePlus, ChevronRight, Plus } from "lucide-react";
+import { PanelLeft, CirclePlus, ChevronRight } from "lucide-react";
 import Pagination from "../Cards/Pagination";
-import { Link } from "react-router-dom";
-import { useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 
-const CustomerLeads = ({ onToggleSidebar }) => {
-    const { onToggleSidebar } = useOutletContext();
+const CustomerLeads = () => {
+  const { onToggleSidebar } = useOutletContext();
+
   const customerDetails = [
     {
       name: "Customer 1",
@@ -95,7 +95,7 @@ const CustomerLeads = ({ onToggleSidebar }) => {
         <div className="flex items-center justify-between mb-2 sticky top-0 bg-gray-50 py-3 border-b border-gray-200 ">
           <div className="flex items-center gap-2">
             <PanelLeft
-              className="w-6 h-6 text-gray-700 active:text-gray-500"
+              className="w-6 h-6 text-gray-700 active:text-gray-500 cursor-pointer"
               onClick={onToggleSidebar}
             />
             <Link to="/my-data">
@@ -103,9 +103,7 @@ const CustomerLeads = ({ onToggleSidebar }) => {
                 My Data
               </span>
             </Link>
-            <span>
-              <ChevronRight className="w-5 h-5 text-gray-800" />
-            </span>
+            <ChevronRight className="w-5 h-5 text-gray-800" />
             <span className="text-sm font-medium text-gray-800">
               Customer Leads
             </span>
@@ -119,7 +117,8 @@ const CustomerLeads = ({ onToggleSidebar }) => {
           </span>
         </div>
 
-        <div className="flex items-center gap-3 mt-4 justify-between">
+
+<div className="flex items-center gap-3 mt-4 justify-between">
           <div className="flex items-center gap-3">
             <div className="border border-gray-200 rounded px-4 py-1 flex items-center bg-white w-50">
               <input
@@ -167,8 +166,8 @@ const CustomerLeads = ({ onToggleSidebar }) => {
           </div>
         </div>
 
-        <div className="p-2 border border-gray-200 mt-4 rounded-xl">
-          <table className="w-full">
+        <div className="p-2 border border-gray-200 mt-4 rounded-xl overflow-x-auto">
+          <table className="w-full min-w-[800px]">
             <thead>
               <tr className="bg-gray-100 border-b border-gray-200">
                 <th className="w-12 px-4 py-3 text-left">
@@ -237,6 +236,7 @@ const CustomerLeads = ({ onToggleSidebar }) => {
             </tbody>
           </table>
         </div>
+
         <div className="mt-4 ">
           <Pagination />
         </div>

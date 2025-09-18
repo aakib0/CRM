@@ -1,8 +1,9 @@
 import React from "react";
 import { useOutletContext } from "react-router-dom";
 
-const EmployeeDetail = ({ onToggleSidebar }) => {
-    const { onToggleSidebar } = useOutletContext();
+const EmployeeDetail = () => {
+  const { onToggleSidebar } = useOutletContext();
+
   const handleToggleSidebar = () => {
     onToggleSidebar();
   };
@@ -12,7 +13,10 @@ const EmployeeDetail = ({ onToggleSidebar }) => {
       <h1 className="text-3xl font-semibold">
         Employee Detail Page
       </h1>
-      <button className="px-4 py-2 border rounded-md" onClick={handleToggleSidebar}>
+      <button
+        className="px-4 py-2 border rounded-md"
+        onClick={handleToggleSidebar}
+      >
         Toggle Sidebar
       </button>
     </div>

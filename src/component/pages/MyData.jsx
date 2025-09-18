@@ -3,17 +3,16 @@ import { Plus, ChevronDown, Columns2 } from "lucide-react";
 import ExampleCard from "../Cards/Examplecard";
 import DataTable from "./DataTable";
 import NavBar from "../Cards/NavBar";
-import { useOutletContext } from "react-router-dom"
+import { useOutletContext } from "react-router-dom";
 
-
-const MyData = ({ onToggleSidebar }) => {
+const MyData = () => {
   const { onToggleSidebar } = useOutletContext();
-  
+
   return (
     <div className="px-6 pt-1 pd-6">
       <NavBar onToggleSidebar={onToggleSidebar} />
       <ExampleCard />
-      <div className="p-4  rounded-lg ">
+      <div className="p-4 rounded-lg">
         <div className="flex items-center justify-between">
           <div className="flex gap-2 bg-gray-100 p-1 rounded-lg text-sm font-medium">
             <button className="flex items-center gap-1 px-4 py-2 bg-white rounded-md text-gray-800 shadow-sm">
@@ -21,15 +20,11 @@ const MyData = ({ onToggleSidebar }) => {
             </button>
             <button className="flex items-center gap-2 px-4 py-2 rounded-md text-gray-600 hover:text-gray-800 hover:bg-gray-50">
               Past Performance
-              <span className="bg-gray-300 text-gray-700 text-xs px-2 py-0.5 rounded-full">
-                3
-              </span>
+              <span className="bg-gray-300 text-gray-700 text-xs px-2 py-0.5 rounded-full">3</span>
             </button>
             <button className="flex items-center gap-2 px-4 py-2 rounded-md text-gray-600 hover:text-gray-800 hover:bg-gray-50">
               Key Personnel
-              <span className="bg-gray-300 text-gray-700 text-xs px-2 py-0.5 rounded-full">
-                2
-              </span>
+              <span className="bg-gray-300 text-gray-700 text-xs px-2 py-0.5 rounded-full">2</span>
             </button>
             <button className="flex items-center px-4 py-2 rounded-md text-gray-600 hover:text-gray-800 hover:bg-gray-50">
               Focus Documents
