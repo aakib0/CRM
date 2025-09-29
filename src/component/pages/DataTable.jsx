@@ -113,14 +113,14 @@ const DataTable = () => {
       return (
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-          <span className="text-sm text-gray-700">Done</span>
+          <span className="text-xs sm:text-sm text-gray-700">Done</span>
         </div>
       );
     } else {
       return (
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-          <span className="text-sm text-gray-700">In Process</span>
+          <span className="text-xs sm:text-sm text-gray-700">In Process</span>
         </div>
       );
     }
@@ -129,31 +129,31 @@ const DataTable = () => {
   return (
     <div className="overflow-hidden">
       <div className="overflow-x-auto mb-4 bg-white border border-gray-200 rounded-lg">
-        <table className="w-full">
+        <table className="w-full min-w-[900px]">
           <thead>
             <tr className="bg-gray-50 border-b border-gray-200">
-              <th className="w-12 px-4 py-3 text-left">
+              <th className="w-12 px-2 sm:px-4 py-3 text-left">
                 <input type="checkbox" className="rounded border-gray-300" />
               </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+              <th className="px-2 sm:px-4 py-3 text-left text-xs sm:text-sm font-medium text-gray-700">
                 Header
               </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+              <th className="px-2 sm:px-4 py-3 text-left text-xs sm:text-sm font-medium text-gray-700">
                 Created Date
               </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+              <th className="px-2 sm:px-4 py-3 text-left text-xs sm:text-sm font-medium text-gray-700">
                 Status
               </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+              <th className="px-2 sm:px-4 py-3 text-left text-xs sm:text-sm font-medium text-gray-700">
                 Records
               </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+              <th className="px-2 sm:px-4 py-3 text-left text-xs sm:text-sm font-medium text-gray-700">
                 Limit
               </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+              <th className="px-2 sm:px-4 py-3 text-left text-xs sm:text-sm font-medium text-gray-700">
                 Reviewer
               </th>
-              <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+              <th className="px-2 sm:px-4 py-3 text-left text-xs sm:text-sm font-medium text-gray-700">
                 Action
               </th>
             </tr>
@@ -164,35 +164,35 @@ const DataTable = () => {
                 key={row.id}
                 className="border-b border-gray-100 hover:bg-gray-50"
               >
-                <td className="px-4 py-4">
+                <td className="px-2 sm:px-4 py-4">
                   <input type="checkbox" className="rounded border-gray-300" />
                 </td>
-                <td className="px-4 py-4">
-                  <span className="text-sm text-gray-900 font-medium">
+                <td className="px-2 sm:px-4 py-4">
+                  <span className="text-xs sm:text-sm text-gray-900 font-medium">
                     {row.header}
                   </span>
                 </td>
-                <td className="px-4 py-4">
-                  <span className="text-sm text-gray-600">
+                <td className="px-2 sm:px-4 py-4">
+                  <span className="text-xs sm:text-sm text-gray-600">
                     {row.createdDate}
                   </span>
                 </td>
-                <td className="px-4 py-4">
+                <td className="px-2 sm:px-4 py-4">
                   <StatusBadge status={row.status} />
                 </td>
-                <td className="px-4 py-4">
-                  <span className="text-sm text-gray-900 font-medium">
+                <td className="px-2 sm:px-4 py-4">
+                  <span className="text-xs sm:text-sm text-gray-900 font-medium">
                     {row.records}
                   </span>
                 </td>
-                <td className="px-4 py-4">
-                  <span className="text-sm text-gray-900 font-medium">
+                <td className="px-2 sm:px-4 py-4">
+                  <span className="text-xs sm:text-sm text-gray-900 font-medium">
                     {row.limit}
                   </span>
                 </td>
-                <td className="px-4 py-4">
+                <td className="px-2 sm:px-4 py-4">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm text-gray-700">
+                    <span className="text-xs sm:text-sm text-gray-700">
                       {row.reviewer}
                     </span>
                     {row.reviewer === "Assign review..." && (
@@ -200,21 +200,23 @@ const DataTable = () => {
                     )}
                   </div>
                 </td>
-                <td className="px-4 py-4">
+                <td className="px-2 sm:px-4 py-4">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <EllipsisVertical className="h-4 cursor-pointer text-gray-600" />
+                      <button className="p-2 hover:bg-gray-100 rounded touch-manipulation">
+                        <EllipsisVertical className="h-4 cursor-pointer text-gray-600" />
+                      </button>
                     </DropdownMenuTrigger>
 
-                    <DropdownMenuContent className="w-44 absolute right-3 top-0 bg-gray-50 border border-gray-100 p-2 ">
-     <Link to="/CRM/customer-leads">
-  <div className="border rounded-xl border-gray-100 hover:bg-white mb-1 font-medium flex items-center">
-    <SquarePen className="h-4 ml-2" />
-    <DropdownMenuItem>
-      <span className="text-[14px]">View Details</span>
-    </DropdownMenuItem>
-  </div>
-</Link>
+                    <DropdownMenuContent className="w-44 absolute right-3 top-0 bg-gray-50 border border-gray-100 p-2">
+                      <Link to="/CRM/customer-leads">
+                        <div className="border rounded-xl border-gray-100 hover:bg-white mb-1 font-medium flex items-center">
+                          <SquarePen className="h-4 ml-2" />
+                          <DropdownMenuItem>
+                            <span className="text-[14px]">View Details</span>
+                          </DropdownMenuItem>
+                        </div>
+                      </Link>
 
                       <div className="border rounded-xl border-gray-100 hover:bg-white font-medium flex items-center text-red-600">
                         <Trash2 className="ml-2 h-4" />

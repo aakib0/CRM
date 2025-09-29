@@ -91,11 +91,11 @@ const CustomerLeads = () => {
 
   return (
     <div>
-      <div className="px-6 pt-1 pd-6">
-        <div className="flex items-center justify-between mb-2 sticky top-0 bg-gray-50 py-3 border-b border-gray-200 ">
+      <div className="px-3 sm:px-6 pt-1 pb-6">
+        <div className="flex items-center justify-between mb-2 sticky top-0 bg-gray-50 py-3 border-b border-gray-200">
           <div className="flex items-center gap-2">
             <PanelLeft
-              className="w-6 h-6 text-gray-700 active:text-gray-500 cursor-pointer"
+              className="w-6 h-6 text-gray-700 active:text-gray-500 cursor-pointer touch-manipulation"
               onClick={onToggleSidebar}
             />
             <Link to="/my-data">
@@ -110,134 +110,135 @@ const CustomerLeads = () => {
           </div>
         </div>
 
-        <div className="mt-3">
-          <h1 className="text-xl font-bold">Customer Leads Q1 2024</h1>
+        <div className="mt-3 mb-4">
+          <h1 className="text-lg sm:text-xl font-bold">Customer Leads Q1 2024</h1>
           <span className="text-gray-600 text-sm">
             File details and Record Management
           </span>
         </div>
 
-
-<div className="flex items-center gap-3 mt-4 justify-between">
-          <div className="flex items-center gap-3">
-            <div className="border border-gray-200 rounded px-4 py-1 flex items-center bg-white w-50">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-4 mb-4 justify-between">
+          <div className="flex items-center gap-2 sm:gap-3 flex-1 overflow-x-auto pb-2 sm:pb-0">
+            <div className="border border-gray-200 rounded px-3 sm:px-4 py-2 flex items-center bg-white min-w-[200px] flex-1 sm:flex-initial">
               <input
                 type="text"
                 placeholder="Filter Customer..."
                 className="outline-none text-sm text-gray-700 placeholder-gray-400 w-full"
               />
             </div>
-            <button className="flex items-center gap-2 border border-gray-200 rounded px-4 py-1 bg-white hover:bg-gray-50">
+            <button className="flex items-center gap-2 border border-gray-200 rounded px-3 sm:px-4 py-2 bg-white hover:bg-gray-50 whitespace-nowrap touch-manipulation">
               <CirclePlus className="text-gray-500 h-4 w-4" />
               <span className="text-sm font-medium">Status</span>
             </button>
-            <button className="flex items-center gap-2 border border-gray-200 rounded px-4 py-1 bg-white hover:bg-gray-50">
+            <button className="flex items-center gap-2 border border-gray-200 rounded px-3 sm:px-4 py-2 bg-white hover:bg-gray-50 whitespace-nowrap touch-manipulation">
               <CirclePlus className="text-gray-500 h-4 w-4" />
               <span className="text-sm font-medium">City</span>
             </button>
           </div>
-          <button className="flex items-center gap-2 border border-gray-200 rounded-lg px-4 py-2 bg-blue-500 text-white font-medium text-[14px]">
+          <button className="flex items-center gap-2 border border-gray-200 rounded-lg px-4 py-2 bg-blue-500 text-white font-medium text-[14px] whitespace-nowrap touch-manipulation">
             <CirclePlus className="text-white h-4 w-4" />
             Add New Customer
           </button>
         </div>
 
-        <div className="grid grid-cols-5 border border-gray-200 bg-white rounded overflow-hidden text-center mt-4">
-          <div className="flex flex-col justify-center items-center p-4 border-r border-gray-200 ">
-            <span className="text-sm text-gray-900 font-medium">
+        <div className="grid grid-cols-1 sm:grid-cols-5 border border-gray-200 bg-white rounded overflow-hidden text-center mt-4 mb-4">
+          <div className="flex flex-col justify-center items-center p-3 sm:p-4 border-b sm:border-b-0 sm:border-r border-gray-200">
+            <span className="text-xs sm:text-sm text-gray-900 font-medium">
               Number of records stored in database
             </span>
           </div>
-          <div className="flex flex-col justify-center items-center p-4 border-r border-gray-200 ">
-            <span className="text-sm text-gray-600">Total Records</span>
-            <span className="text-2xl font-bold">1,200</span>
+          <div className="flex flex-col justify-center items-center p-3 sm:p-4 border-b sm:border-b-0 sm:border-r border-gray-200">
+            <span className="text-xs sm:text-sm text-gray-600">Total Records</span>
+            <span className="text-xl sm:text-2xl font-bold">1,200</span>
           </div>
-          <div className="flex flex-col justify-center items-center p-4 border-r border-gray-200">
-            <span className="text-sm text-gray-600">Assigned</span>
-            <span className="text-2xl font-bold">700</span>
+          <div className="flex flex-col justify-center items-center p-3 sm:p-4 border-b sm:border-b-0 sm:border-r border-gray-200">
+            <span className="text-xs sm:text-sm text-gray-600">Assigned</span>
+            <span className="text-xl sm:text-2xl font-bold">700</span>
           </div>
-          <div className="flex flex-col justify-center items-center p-4 border-r border-gray-200">
-            <span className="text-sm text-gray-600">Pending</span>
-            <span className="text-2xl font-bold">300</span>
+          <div className="flex flex-col justify-center items-center p-3 sm:p-4 border-b sm:border-b-0 sm:border-r border-gray-200">
+            <span className="text-xs sm:text-sm text-gray-600">Pending</span>
+            <span className="text-xl sm:text-2xl font-bold">300</span>
           </div>
-          <div className="flex flex-col justify-center items-center p-4">
-            <span className="text-sm text-gray-600">Completed</span>
-            <span className="text-2xl font-bold">200</span>
+          <div className="flex flex-col justify-center items-center p-3 sm:p-4">
+            <span className="text-xs sm:text-sm text-gray-600">Completed</span>
+            <span className="text-xl sm:text-2xl font-bold">200</span>
           </div>
         </div>
 
-        <div className="p-2 border border-gray-200 mt-4 rounded-xl overflow-x-auto">
-          <table className="w-full min-w-[800px]">
-            <thead>
-              <tr className="bg-gray-100 border-b border-gray-200">
-                <th className="w-12 px-4 py-3 text-left">
-                  <input type="checkbox" className="rounded border-gray-300" />
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                  Name
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                  Email
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                  Phone
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                  Status
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                  City
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
-                  Assigned To
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {customerDetails.map((row, index) => (
-                <tr
-                  key={index}
-                  className="border-b border-gray-100 hover:bg-gray-50"
-                >
-                  <td className="px-4 py-4">
-                    <input
-                      type="checkbox"
-                      className="rounded border-gray-300"
-                    />
-                  </td>
-                  <td className="px-4 py-4 text-sm font-medium text-gray-900">
-                    {row.name}
-                  </td>
-                  <td className="px-4 py-4 text-sm text-gray-700">
-                    {row.email}
-                  </td>
-                  <td className="px-4 py-4 text-sm text-gray-700">
-                    {row.phone}
-                  </td>
-                  <td className="px-4 py-4">
-                    <span
-                      className={`px-2 py-1 text-xs font-medium rounded-full ${
-                        row.status === "Active"
-                          ? "bg-green-100 text-green-700"
-                          : "bg-red-100 text-red-700"
-                      }`}
-                    >
-                      {row.status}
-                    </span>
-                  </td>
-                  <td className="px-4 py-4 text-sm text-gray-700">
-                    {row.city}
-                  </td>
-                  <td className="px-4 py-4 text-sm text-gray-700">
-                    {row.assignedTo}
-                  </td>
+        <div className="border border-gray-200 rounded-xl overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[800px]">
+              <thead>
+                <tr className="bg-gray-100 border-b border-gray-200">
+                  <th className="w-12 px-2 sm:px-4 py-3 text-left">
+                    <input type="checkbox" className="rounded border-gray-300" />
+                  </th>
+                  <th className="px-2 sm:px-4 py-3 text-left text-xs sm:text-sm font-medium text-gray-700">
+                    Name
+                  </th>
+                  <th className="px-2 sm:px-4 py-3 text-left text-xs sm:text-sm font-medium text-gray-700">
+                    Email
+                  </th>
+                  <th className="px-2 sm:px-4 py-3 text-left text-xs sm:text-sm font-medium text-gray-700">
+                    Phone
+                  </th>
+                  <th className="px-2 sm:px-4 py-3 text-left text-xs sm:text-sm font-medium text-gray-700">
+                    Status
+                  </th>
+                  <th className="px-2 sm:px-4 py-3 text-left text-xs sm:text-sm font-medium text-gray-700">
+                    City
+                  </th>
+                  <th className="px-2 sm:px-4 py-3 text-left text-xs sm:text-sm font-medium text-gray-700">
+                    Assigned To
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {customerDetails.map((row, index) => (
+                  <tr
+                    key={index}
+                    className="border-b border-gray-100 hover:bg-gray-50"
+                  >
+                    <td className="px-2 sm:px-4 py-4">
+                      <input
+                        type="checkbox"
+                        className="rounded border-gray-300"
+                      />
+                    </td>
+                    <td className="px-2 sm:px-4 py-4 text-xs sm:text-sm font-medium text-gray-900">
+                      {row.name}
+                    </td>
+                    <td className="px-2 sm:px-4 py-4 text-xs sm:text-sm text-gray-700">
+                      {row.email}
+                    </td>
+                    <td className="px-2 sm:px-4 py-4 text-xs sm:text-sm text-gray-700">
+                      {row.phone}
+                    </td>
+                    <td className="px-2 sm:px-4 py-4">
+                      <span
+                        className={`px-2 py-1 text-xs font-medium rounded-full ${
+                          row.status === "Active"
+                            ? "bg-green-100 text-green-700"
+                            : "bg-red-100 text-red-700"
+                        }`}
+                      >
+                        {row.status}
+                      </span>
+                    </td>
+                    <td className="px-2 sm:px-4 py-4 text-xs sm:text-sm text-gray-700">
+                      {row.city}
+                    </td>
+                    <td className="px-2 sm:px-4 py-4 text-xs sm:text-sm text-gray-700">
+                      {row.assignedTo}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        <div className="mt-4 ">
+        <div className="mt-4">
           <Pagination />
         </div>
       </div>

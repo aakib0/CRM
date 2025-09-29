@@ -1,9 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Database, Trello, Settings } from "lucide-react";
 import { Link, Outlet } from "react-router-dom";
 
 const Layout = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  
+  useEffect(() => {
+    const checkScreenSize = () => {
+      const isTabletOrMobile = window.innerWidth < 1024; // lg breakpoint
+      setIsMobile(isTabletOrMobile);
+      if (isTabletOrMobile) {
+        setCollapsed(true);
+      }
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   const handleToggleSidebar = () => {
     setCollapsed((prev) => !prev);
@@ -12,42 +28,47 @@ const Layout = () => {
   return (
     <div className="flex h-screen bg-gray-50 overflow-hidden">
       
+      {isMobile && !collapsed && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
+          onClick={handleToggleSidebar}
+        />
+      )}
+      
       <aside
-        className={`bg-white border-r border-gray-200 flex flex-col fixed left-0 top-0 h-full z-10 transition-all duration-300 ${
+        className={`bg-white border-r border-gray-200 flex flex-col fixed left-0 top-0 h-full z-30 transition-all duration-300 ${
           collapsed ? "w-20" : "w-64"
-        }`}
+        } ${isMobile && collapsed ? "-translate-x-full" : "translate-x-0"}`}
       >
        
         <div className="flex-shrink-0 p-4 border-b border-gray-200">
           <h4 className="font-bold text-gray-900">{collapsed ? "" : "TeleCRM"}</h4>
         </div>
 
-     
+      
         <nav className="flex-1 px-2 py-6 overflow-y-auto">
           <div className="space-y-2">
             <Link to="/CRM/my-data">
               <button className="flex items-center gap-3 w-full px-3 py-2 text-left text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md">
-                <Database className="w-4 h-4" />
-                {!collapsed && "My Data"}
+                <Database className="w-4 h-4 flex-shrink-0" />
+                {!collapsed && <span className="truncate">My Data</span>}
               </button>
             </Link>
 
             <Link to="/CRM/my-employees">
               <button className="flex items-center gap-3 w-full px-3 py-2 text-left text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md">
-                <Trello className="w-4 h-4" />
-                {!collapsed && "My Employees"}
+                <Trello className="w-4 h-4 flex-shrink-0" />
+                {!collapsed && <span className="truncate">My Employees</span>}
               </button>
             </Link>
-
-            
           </div>
         </nav>
 
-      
+     
         <div className="flex-shrink-0 p-4 border-t border-gray-200 space-y-4">
           <button className="flex items-center gap-3 w-full px-3 py-2 text-left text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md">
-            <Settings className="w-5 h-5 text-gray-400" />
-            {!collapsed && "Settings"}
+            <Settings className="w-5 h-5 text-gray-400 flex-shrink-0" />
+            {!collapsed && <span className="truncate">Settings</span>}
           </button>
 
           <div className="flex items-center gap-3 p-2 rounded-lg">
@@ -66,10 +87,13 @@ const Layout = () => {
         </div>
       </aside>
 
-     
       <main
         className={`flex-1 overflow-auto transition-all duration-300 ${
-          collapsed ? "ml-20" : "ml-64"
+          isMobile 
+            ? "ml-0" 
+            : collapsed 
+              ? "ml-20" 
+              : "ml-64"
         }`}
       >
         <Outlet context={{ onToggleSidebar: handleToggleSidebar }} />

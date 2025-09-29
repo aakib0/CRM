@@ -33,10 +33,10 @@ function App() {
   return (
     <Routes>
       <Route path="/CRM" element={<Layout />}>
-        {/* Default redirect to my-data */}
+        
         <Route index element={<Navigate to="my-data" replace />} />
 
-        {/* Each page at the same level */}
+       
         <Route path="my-data" element={<MyData />} />
         <Route path="my-employees" element={<MyEmployees />} />
         <Route path="employee-details" element={<EmployeeDetail />} />
